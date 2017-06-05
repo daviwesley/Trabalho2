@@ -1,12 +1,17 @@
 package Hash;
 
 public class Hash {
-	private int contedo[] = new int[7];
+	private int conteudo[] = new int[7];
+	
 	
 	public void adicionar(int chave){
 		int a = chave % 7;
-		conteudo[a];
+		this.conteudo[a] = chave;
 	}
 	
-
+	public void imprimir(){
+		for( int i = 0; i < this.conteudo.length; i ++){
+			System.out.println("Posicão " + i + "conteudo= " + this.conteudo[i]);
+		}
+	}
 }
