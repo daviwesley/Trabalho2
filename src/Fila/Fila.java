@@ -56,7 +56,7 @@ public class Fila  {
 			No min = no1;//item da iteração
 			//seleciona o menor nó
 			for(No no2 = no1; no2!=null; no2 = no2.getProx()){
-				if(min.getPrioridade() > no2.getPrioridade()){
+				if(min.getPrioridade() < no2.getPrioridade()){
 					min = no2;
 				}
 
