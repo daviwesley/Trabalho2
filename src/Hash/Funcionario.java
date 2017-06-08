@@ -2,15 +2,19 @@ package Hash;
 
 public class Funcionario {
 	private String nome;
+	private String usuario;
 	private String titulo;
 	private Boolean privilegio;
 	private int senha;
 
-	public Funcionario(String nome, String titulo, Boolean privilegios, int senha) {
+	
+
+	public Funcionario(String nome, String usuario, String titulo, Boolean privilegio, int senha) {
 		super();
 		this.nome = nome;
+		this.usuario = usuario;
 		this.titulo = titulo;
-		this.privilegio = privilegios;
+		this.privilegio = privilegio;
 		this.senha = senha;
 	}
 
@@ -46,6 +50,20 @@ public class Funcionario {
 		this.senha = senha;
 	}
 
-	
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public Boolean getPrivilegio() {
+		return privilegio;
+	}
+
+	public void setPrivilegio(Boolean privilegio) {
+		this.privilegio = privilegio;
+	}
 
 }

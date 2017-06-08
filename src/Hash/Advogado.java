@@ -2,8 +2,10 @@ package Hash;
 
 public class Advogado extends Funcionario{
   
-    public Advogado(String nome, String titulo, Boolean privilegios, int senha) {
-		super(nome, titulo, privilegios, senha);
+   
+
+	public Advogado(String nome, String usuario, String titulo, Boolean privilegio, int senha) {
+		super(nome, usuario, titulo, privilegio, senha);
 		// TODO Auto-generated constructor stub
 	}
 

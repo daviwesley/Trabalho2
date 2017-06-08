@@ -5,18 +5,16 @@ public class Teste {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Hash h = new Hash();
-		Funcionario f = new Advogado("Davi", "Dr.", true, 123456);
-		Funcionario g = new Advogado("David", "Dr.", true, 12356);
-		Funcionario i = new Advogado("Daniel", "Dr.", true, 877460);
+		Funcionario f = new Advogado("Davi Wesley", "daviwesley","Dr.", true,123456);
+		Funcionario g = new Advogado("Daniel", "daviwesley","Dr.", true,123456);
 		h.put(f);
 		h.put(g);
-		h.put(i);
-		if(877460 == h.get("Daniel")){
+		if(123456 == h.get("daviwesley")){
 			System.out.println("Senha correta");
 		}else{
 			System.out.println("Senha Incorreta");
 		}
-		h.imprimirHash();
+		
 
 	}
 
