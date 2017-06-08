@@ -1,43 +1,49 @@
-package Hash;
+
+import java.math.BigInteger;
 
 public class Hash {
-	private int conteudo[] = new int[11];
+      // Srtting table size to a max of 32, value used to modulus for hash value.
+      private final static int TABLE_SIZE = 32;
 
-	public void adicionar(int chave) {
-		int a = chave % 7;
-		this.conteudo[this.hash(chave)] = chave;
-	}
+      HashEntry[] table;
 
-	public void imprimir() {
-		for (int i = 0; i < this.conteudo.length; i++) {
-			System.out.println("Posicão " + i + "conteudo= " + this.conteudo[i]);
-		}
-	}
+      HashMap() {
+            table = new HashEntry[TABLE_SIZE];
+            for (int i = 0; i < TABLE_SIZE; i++)
+                  table[i] = null;
+      }
 
-	public boolean ePrimo(int n) {
-		boolean primo = true;
-		for (int i = 3; i <= Math.sqrt(n); i += 2)
-			if (n % i == 0) {
-				primo = false;
-				break;
-			}
-		if ((n % 2 != 0 && primo && n > 2) || n == 2)
-			return true;
-		else
-			return false;
-	}
-	
-	public int primoAnterior(int n)
-    {
-        n--;
-        while(!ePrimo(n))
-            n--;
-        return n;
-    }
-	
-	public int hash(int value)
-    {
-        return primoAnterior(11) - (value%primoAnterior(11));
-    }
-	
+      /* function to retrieve value from the table according to key */
+      public int get(String key) {
+            int hash = new BigInteger(toAscii(key)).mod(new BigInteger(((Integer)TABLE_SIZE).toString())).intValue();
+            while (table[hash] != null && table[hash].getKey() != key)
+                  hash = (hash + 1) % TABLE_SIZE;
+            if (table[hash] == null)
+                  return -1;
+            else
+                  return table[hash].getValue();
+      }
+
+      /* function to add value to the table */
+      public void put(String key, int value) {
+            //creating hash code using key value given as a string
+            int hash = new BigInteger(toAscii(key)).mod(new BigInteger(((Integer)TABLE_SIZE).toString())).intValue();
+            while (table[hash] != null && table[hash].getKey() != key)
+                  hash = (hash + 1) % TABLE_SIZE;
+            table[hash] = new HashEntry(key, value);
+      }
+
+      /* value to create the Hash code from he name entered, basically converting name to ASCII */
+      public static String toAscii(String s){
+          StringBuilder sb = new StringBuilder();
+          long asciiInt;
+          // loop through all values in the string, including blanks
+          for (int i = 0; i < s.length(); i++){
+              //getting Ascii value of character and adding it to the string.
+              char c = s.charAt(i);
+              asciiInt = (int)c; 
+              sb.append(asciiInt);
+          }
+          return String.valueOf(sb);
+  }
 }
