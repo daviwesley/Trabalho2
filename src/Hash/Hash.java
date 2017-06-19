@@ -61,11 +61,11 @@ public class Hash {
 	}
 
 	/**
-	 * Transforma uma cadeia de caracteres em seus respectivos códigos ASCII
+	 * Transforma uma cadeia de caracteres em seus respectivos cÃ³digos ASCII
 	 * 
 	 * @param s
 	 *            String desejada
-	 * @return retorna o código ASCII
+	 * @return retorna o cÃ³digo ASCII
 	 */
 	private static String toAscii(String s) {
 		StringBuilder sb = new StringBuilder();
@@ -77,4 +77,12 @@ public class Hash {
 		}
 		return String.valueOf(sb);
 	}
+	public Boolean verificarUsuario(int senha, Funcionario f, Hash h){
+		if(senha == h.get(f.getUsuario())){
+			System.out.println("Senha correta");
+			return true;
+		}else{
+			System.out.println("Senha Incorreta");
+			return false;
+		}
 }
