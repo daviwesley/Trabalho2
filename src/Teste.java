@@ -11,6 +11,7 @@ import Pessoas.Juiz;
 import Pilha.Pilha;
 import Processo.Processo;
 
+
 public class Teste {
 
 	public static void main(String[] args) throws IOException {
@@ -31,46 +32,47 @@ public class Teste {
 
 		pProcessos.adicionar(p);
 
-		System.out.println("Digite as seguintes opções:");
-		System.out.println("1 - Criar Processo");
-		System.out.println("2 - Remover Processo");
-		System.out.println("3 - exit");
-		Scanner scanchoice = new Scanner(System.in);
-		System.out.println();  
-		int choiceentry = scanchoice.nextInt();
-		
-		while(choiceentry < 1 || choiceentry > 3){
+		 InputStreamReader a = new InputStreamReader(System.in);
+	        BufferedReader ler = new BufferedReader(a);
 
-			System.out.println("Digite \"1\", \"2\", \"3\" or \"4\"");
-			if(scanchoice.hasNextInt())
-				choiceentry = scanchoice.nextInt();
+	        Scanner input = new Scanner(System.in);
+	        int opcao = -1;
+	        do {
+	            System.out.println("____________________________________");
+	            System.out.println("   0 - Sair");
+	            System.out.println("   1- Cadastrar processo");
+	            System.out.println("   2- Analisar Processo");
+	            System.out.println("   3- Julgar Processo");
+	            System.out.println("____________________________________");
+	            System.out.println("Digite sua opção");
+	            opcao = input.nextInt();
+	            switch (opcao) {
+	                case 0:
+	                    System.out.println("Programa Encerrado");
+	                    break;
+	                case 1:
+	                	System.out.println("   Digite o nome da Vitima");
+	                    String nomeVitima = ler.readLine();
+	                    System.out.println("   Digite o nome do Acusado");
+	                    String nomeAcusado = ler.readLine();
+	                    System.out.println("   Digite a descricao do Processo");
+	                    String descricao = ler.readLine();
+	                    Processo processo = new Processo(0, nomeVitima, nomeAcusado, "", descricao);
+	                    pilha.adicionar(processo);
+	                    break;
+	                case 2:
+	                   h.verificarUsuario();
+	                    break;
+	                case 3:
+	                   
+	                    break;
+	                default:
+	                    System.out.println("OpÃ§Ã£o Invalida");
 
-		}
-		 InputStreamReader input = new InputStreamReader(System.in);
-	     BufferedReader ler = new BufferedReader(input);
-		switch(choiceentry){
-		case 1:
-	     System.out.println("   Digite o nome da Vitima");
-             String nomeVitima = ler.readLine();
-             System.out.println("   Digite o nome do Acusado");
-             String nomeAcusado = ler.readLine();
-             System.out.println("   Digite a descricao do Processo");
-             String descricao = ler.readLine();
-             Processo a = new Processo(0, nomeVitima, nomeAcusado, "", descricao);
-             pilha.adicionar(a);
-			
-			break;
-		case 2:
-			if(h.verificarUsuario()){
-				
-			}
-			
-			//do logic
-			break;
-		case 3:
-			//do logic
-			break;
-		}
+	            }
 
-	}
+	        } while (opcao != 0);
+
+	    }
+
 }
