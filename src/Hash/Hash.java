@@ -77,12 +77,21 @@ public class Hash {
 		}
 		return String.valueOf(sb);
 	}
-	public Boolean verificarUsuario(int senha, Funcionario f, Hash h){
-		if(senha == h.get(f.getUsuario())){
+	public Boolean verificarUsuario(){
+		System.out.println("Digite o usuario:");
+		Scanner usuario = new Scanner(System.in);
+		System.out.println();  
+		String nome = usuario.nextLine();
+		System.out.println("Digite a senha:");
+		Scanner senha = new Scanner(System.in);
+		System.out.println();  
+		int result = senha.nextInt();
+		if(result == this.get(nome)){
 			System.out.println("Senha correta");
 			return true;
 		}else{
 			System.out.println("Senha Incorreta");
 			return false;
 		}
+	}
 }
