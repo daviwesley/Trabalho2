@@ -1,11 +1,12 @@
 package Fila;
 
-public class Fila  {
+
+public class Fila<T>  {
 	private int tam;
 	private No inicio;
 	private No fim;
 
-	public void adicionar(int x){
+	public void adicionar(T x){
 		//adiciona no fim
 		if(this.inicio == null){
 			this.adicionarInicio(x);
@@ -18,7 +19,7 @@ public class Fila  {
 		}
 	}
 	
-	private void adicionarInicio(int x){
+	private void adicionarInicio(T x){
 		No n = new No();
 		n.setConteudo(x);
 		if(inicio == null){
@@ -50,25 +51,39 @@ public class Fila  {
 		}
 		return string.toString();
 	}
-	
-	public void selectionSort(){
-		for(No no1 = inicio; no1!=null; no1 = no1.getProx()){//percorre a lista
-			No min = no1;//item da iteração
-			//seleciona o menor nó
-			for(No no2 = no1; no2!=null; no2 = no2.getProx()){
-				if(min.getPrioridade() < no2.getPrioridade()){
-					min = no2;
-				}
 
-			}
-			//faz troca dos nós swap
-			No temp = new No();
-			temp.setConteudo(no1.getConteudo());//temp = no1;
-			no1.setConteudo(min.getConteudo()); //no1 = min;
-			min.setConteudo(temp.getConteudo()); //min = temp;
-		}
-
+	public T pegar(int i) {
+        No<T> atual = this.inicio;
+        for (int j = 0; j < i; j++) {
+            atual = atual.getProx();
+        }
+        return atual.getConteudo();
+    }
 	
+	public int getTam() {
+		return tam;
 	}
+
+	public void setTam(int tam) {
+		this.tam = tam;
+	}
+
+	public No getInicio() {
+		return inicio;
+	}
+
+	public void setInicio(No inicio) {
+		this.inicio = inicio;
+	}
+
+	public No getFim() {
+		return fim;
+	}
+
+	public void setFim(No fim) {
+		this.fim = fim;
+	}
+	
+	
 }
 

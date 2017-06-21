@@ -10,10 +10,10 @@ public class Processo {
 	private String nomeAdvogado;
 	private String shortDescription;
 	
-	public Processo(int iD, int prioridade, String nomeVitima, String nomeAcusado, String nomeAdvogado,
+	public Processo(int prioridade, String nomeVitima, String nomeAcusado, String nomeAdvogado,
 			String shortDescription) {
 		super();
-		ID = gerarID();
+		this.ID = gerarID();
 		this.prioridade = prioridade;
 		this.nomeVitima = nomeVitima;
 		this.nomeAcusado = nomeAcusado;
@@ -88,6 +88,15 @@ public class Processo {
 
 	public void setShortDescription(String shortDescription) {
 		this.shortDescription = shortDescription;
+	}
+	
+	public void Imprimir(){
+		System.out.println("Id: " + this.getID());
+        System.out.println("Nome da Vitima: " + this.getNomeVitima());
+        System.out.println("Nome do Acusado: " + this.getNomeAcusado());
+        System.out.println("Nome do Advogado: " + this.getNomeAdvogado());
+        System.out.println("Descricao: " + this.getShortDescription());
+        System.out.println("Prioridade: " + this.getPrioridade());
 	}
 	
 	

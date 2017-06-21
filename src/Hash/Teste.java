@@ -1,5 +1,8 @@
 package Hash;
 
+import Pessoas.Advogado;
+import Pessoas.Funcionario;
+
 public class Teste {
 
 	public static void main(String[] args) {

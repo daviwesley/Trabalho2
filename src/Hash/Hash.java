@@ -1,6 +1,9 @@
 package Hash;
 
 import java.math.BigInteger;
+import java.util.Scanner;
+
+import Pessoas.Funcionario;
 
 public class Hash {
 	// Srtting table size to a max of 32, value used to modulus for hash value.
@@ -8,19 +11,17 @@ public class Hash {
 	private int tam;
 	Funcionario[] table;
 
-	Hash() {
+	public Hash() {
 		table = new Funcionario[TABLE_SIZE];
 		for (int i = 0; i < TABLE_SIZE; i++)
 			table[i] = null;
 	}
 
 	/**
-	 * @param usuario
-	 *            nome do usuario
+	 * @param usuario nome do usuario          
 	 * @return retorna a senha que corresponde ao nome do usuario
 	 */
 	public int get(String usuario) {
-		int cont = 0;
 		int hash = new BigInteger(toAscii(usuario)).mod(new BigInteger(((Integer) TABLE_SIZE).toString())).intValue();
 		// while (table[hash] != null && table[hash].getNome() != key)
 		hash = (hash + 1) % TABLE_SIZE;
@@ -61,11 +62,11 @@ public class Hash {
 	}
 
 	/**
-	 * Transforma uma cadeia de caracteres em seus respectivos cÃ³digos ASCII
+	 * Transforma uma cadeia de caracteres em seus respectivos códigos ASCII
 	 * 
 	 * @param s
 	 *            String desejada
-	 * @return retorna o cÃ³digo ASCII
+	 * @return retorna o código ASCII
 	 */
 	private static String toAscii(String s) {
 		StringBuilder sb = new StringBuilder();
@@ -80,11 +81,11 @@ public class Hash {
 	public Boolean verificarUsuario(){
 		System.out.println("Digite o usuario:");
 		Scanner usuario = new Scanner(System.in);
-		System.out.println();  
+		//System.out.println();  
 		String nome = usuario.nextLine();
 		System.out.println("Digite a senha:");
 		Scanner senha = new Scanner(System.in);
-		System.out.println();  
+		//System.out.println();  
 		int result = senha.nextInt();
 		if(result == this.get(nome)){
 			System.out.println("Senha correta");
@@ -93,5 +94,7 @@ public class Hash {
 			System.out.println("Senha Incorreta");
 			return false;
 		}
+		
+		
 	}
 }

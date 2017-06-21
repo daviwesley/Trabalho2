@@ -18,6 +18,9 @@ public class Funcionario {
 		this.senha = senha;
 	}
 
+	public Funcionario() {
+		super();
+	}
 	public String getNome() {
 		return nome;
 	}
