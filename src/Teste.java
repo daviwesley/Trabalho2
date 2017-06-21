@@ -23,6 +23,7 @@ public class Teste {
 		Funcionario davi = new Advogado("Davi Wesley", "daviwesley", "Dr.", true, 1234548);
 		Funcionario b = new Advogado("Daniel", "daniel", "Dr.", true, 123456);
 		Funcionario c = new Advogado("Vitor Oliveira", "voliveira", "Dr.", true, 168641);
+		Funcionario d = new Juiz("Vitor Oliveira", "voliveira", "Dr.", true, 168641);
 		h.put(davi);
 		h.put(b);
 		h.put(c);
@@ -40,7 +41,7 @@ public class Teste {
 			System.out.println("   3-  Julgar Processso");
 			System.out.println("   4-  Sair");
 			System.out.println("____________________________________");
-			System.out.println("Digite sua opÁ„o");
+			System.out.println("Digite sua op√ß√£o");
 			opcao = input.nextInt();
 			switch (opcao) {
 			case 1:
@@ -92,7 +93,7 @@ public class Teste {
 				System.exit(1);
 				break;
 			default:
-				System.out.println("OpÁ„o Inv·lida");
+				System.out.println("Op√ß√£o Inv√°lida");
 
 			}
 
